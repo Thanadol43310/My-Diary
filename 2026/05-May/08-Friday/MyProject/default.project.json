@@ -1,0 +1,12 @@
+{
+  "name": "MyProject",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "MainScript": {
+        "$path": "src/server/init.server.lua"
+      }
+    }
+  }
+}
