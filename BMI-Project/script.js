@@ -45,7 +45,7 @@ async function calculateBMI() {
     }
 
     //ส่งไปให้ Python คำนวณ
-    const response = await fetch('http://localhost:5000/bmi', {
+    const response = await fetch('/bmi', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ weight, height})

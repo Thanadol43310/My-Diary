@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
 #สร้าง server
-app = Flask(__name__)
+app = Flask(__name__,static_folder = '.', static_url_path = '')
 CORS(app) # อนุญาตให้ JS เรียกได้
 
 
@@ -21,9 +21,13 @@ def get_bmi_category(bmi):
         return "Overweight","น้ำหนักเกิน ควรดูแลสุขภาพ"
     else:
         return "Obesity", "อ้วนเกินไป ควรพบแพทย์"
-    
+
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
+
 #สร้างเส้นทาง(route = เส้นทาง) ถ้ามีคนส่ง request โดยใช้วิธี POST มาที่ URL /bmi ให้รันFunc bmi()ด้านล่างนี้
-@app.route('/bmi', methods = ['POST'])
+@app.route('/bmi', methods=['POST'])
 def bmi():
 
     #นำ request จาก Json ที่ผ่านมาจาก Flask ให้นำมาเก็บไว้ที่ตัวแป Data
@@ -49,7 +53,7 @@ def bmi():
     })
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
 
     
