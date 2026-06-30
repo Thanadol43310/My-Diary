@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalBMI</title>
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Prompt:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="MenuBar">
+        <nav>
+            <ul class="menu">
+                <li><a href="#section1">หน้าแรก</a></li>
+                <li><a href="#section2">เกี่ยวกับเรา</a></li>
+                <li><a href="#section3">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main class="main-wrapper">
+        <section id="section1">
+            <div class="left-side">
+                <div class="Content">
+                    <div class="intro">
+                        <h1>เคำนวณดัชนีมวลกาย (BMI) </h1>
+                        <h1>เพื่อสุขภาพที่ดีของคุณ</h1>
+                        <p>BMI (ดัชนีมวลกาย) คือเครื่องมือมาตรฐานสำหรับประเมินความสมดุลของร่างกาย</p>
+                        <p>โดยคำนวณจากน้ำหนักและส่วนสูง เพื่อช่วยให้คุณวางแผนการกิน การออกกำลังกาย </p>
+                        <p>และดูแลสุขภาพได้อย่างเหมาะสมและปลอดภัย</p>
+                    </div>
+
+                    <div class="Info-inp">
+                        <div class="input-group">
+                            <label for="height">ส่วนสูง (cm.)</label>
+                            <input type="number" id="height" placeholder="กรอกส่วนสูง">
+                        </div>
+                        <div class="input-group">
+                            <label for="weight">น้ำหนักตัว (kg.)</label>
+                            <input type="number" id="weight" placeholder="กรอกน้ำหนักตัว">
+                        </div>
+
+                    </div>
+
+                    <div class="cal">
+                        <button class="calcu-btn" onclick="calculateBMI()">คำนวณ</button>
+                    </div>
+                    <div class="note">
+                        <div class=" note-note">
+                            <div class="note-note-note">
+                                <p>ค่า BMI เป็นเพียงเครื่องมือประเมินสัดส่วนร่างกายในเบื้องต้นเท่านั้น
+                                    ไม่ได้วัดจากมวลไขมันหรือองค์ประกอบภายในร่างกายโดยตรง
+                                    ผลลัพธ์ที่ได้อาจมีความคลาดเคลื่อนและไม่สามารถสะท้อนภาวะสุขภาพที่แท้จริงของผู้ที่มีมวลกล้ามเนื้อสูง
+                                    (เช่น นักกีฬา), หญิงตั้งครรภ์, เด็ก, ผู้สูงอายุ, ผู้มีโรคประจำตัวเฉพาะบุคคล
+                                    รวมถึงกลุ่มชาติพันธุ์เฉพาะกลุ่ม จึงไม่ควรนำค่า BMI
+                                    นี้ไปใช้เป็นเครื่องมือหลักในการวินิจฉัยโรคทางการแพทย์</p>
+                                <p>นอกจากนี้
+                                    ผลการคำนวณจากเครื่องมือนี้ไม่ได้เป็นตัวกำหนดสิทธิ์หรือความจำเป็นในการใช้ยาลดน้ำหนักหรือการรักษาใดๆ
+                                    การประเมินเพื่อรับการรักษาทางการแพทย์ที่เหมาะสมและปลอดภัย
+                                    จะต้องผ่านการปรึกษาและวินิจฉัยโดยละเอียดจากแพทย์หรือผู้เชี่ยวชาญด้านสาธารณสุขเท่านั้น
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="right-side">
+            <canvas id="gauge" width=" 480px" height="285px"></canvas>
+            <div class="result">
+                <div class="text-en">
+                    <p id="category">หมวดหมู่: </p>
+                    <p id="advice">คำแนะนำ: </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <div class="sectionContent">
+        <section id="section2">
+            <img src="Image.jpg" alt="" class="Img">
+            <h2 class="overlay-text">
+                <span>ระบบคำนวณดัชนีมวลกาย (BMI) </span><br>
+                <span>ได้รับการพัฒนาขึ้นโดยอิงเกณฑ์การประเมินตามมาตรฐานสากลขององค์การอนามัยโลก (WHO)</span><br>
+                <span>ของเราเพื่อให้มั่นใจว่าทุกผลลัพธ์มีความเที่ยงตรงและเป็นไปตามหลักการแพทย์</span>
+            </h2>
+        </section>
+
+        <section id="section3">
+            <div class="contact">
+                <h1 class="contact-messages">
+                    <span>ช่องทางติดต่อ</span><br>
+                    <span>โทรหาเราได้ที่ 087-XXX-XXXX</span>
+                </h1>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
